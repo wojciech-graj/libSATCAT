@@ -8,10 +8,12 @@
 
 #include "satcat.h"
 
+#include <ctype.h>
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
 
+static bool isopstat(char c);
 static int parse_int(char *str, unsigned len);
 static double parse_dbl(char *str, unsigned len, unsigned loc_pt);
 static void parse_date(struct SCDate *date, char *str);
@@ -43,6 +45,79 @@ void sc_parse(struct SatCat *sc, char *str)
 	else
 		sc->radar_cs = 0.0;
 	memcpy(sc->status_code, str + 129, 3);
+}
+
+bool sc_validate(char *str)
+{
+	const char *fmt = "nnnn-nnnaaa  nnnnn M*O aaaaaaaaaaaaaaaaaaaaaaaa  aaaaa  nnnn-nn-nn  aaaaa  nnnn-nn-nn  NNNNn.n  NNn.n  NNNNNn  NNNNNn  NNn.nnnn  aaa";
+	unsigned i;
+
+	/* Validate Length */
+	for (i = 0; i < 132; i++) {
+		if (str[i] == '\0')
+			return 0;
+	}
+
+	/* Validate Contents */
+	for (i = 0; i < 132; i++) {
+		if (i == 75) {
+			if (!strncmp("          ", str + 75, 10)) {
+				i += 9;
+				continue;
+			}
+		} else if (i == 119) {
+			if (!strncmp("   N/A  ", str + 119, 8)) {
+				i += 7;
+				continue;
+			}
+		}
+
+		switch (fmt[i]) {
+		case 'n':
+			if (!isdigit(str[i]))
+				return 0;
+			break;
+		case 'a':
+			if (!isgraph(str[i]) && str[i] != ' ')
+				return 0;
+			break;
+		case 'M':
+		case '*':
+			if (str[i] != ' ' && str[i] != fmt[i])
+				return 0;
+			break;
+		case 'O':
+			if (!isopstat(str[i]))
+				return 0;
+			break;
+		case 'N':
+			if ((fmt[i - 1] == 'N' && str[i - 1] != ' ' && str[i] == ' ') || (str[i] != ' ' && !isdigit(str[i])))
+				return 0;
+			break;
+		default:
+			if (str[i] != fmt[i])
+				return 0;
+		}
+	}
+	return 1;
+}
+
+bool isopstat(char c)
+{
+	switch (c) {
+	case '+':
+	case '-':
+	case 'P':
+	case 'B':
+	case 'S':
+	case 'X':
+	case 'D':
+	case '?':
+	case ' ':
+		return 1;
+	default:
+		return 0;
+	}
 }
 
 int parse_int(char *str, unsigned len)

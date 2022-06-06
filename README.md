@@ -20,7 +20,8 @@ gcc ../src/satcat.c ../src/satcat_code.c test.c -lm -ansi -I../src -o bin
 Yielding the following output:
 
 ```
-Parsed 52802 satellites in 0.025441s.
+Parsed and Validated 52802 satellites in 0.066405s.
+Found 51898 valid satellites and 904 invalid satellites.
 
 First satellite:
 Name: SL-1 R/B
@@ -39,6 +40,7 @@ The SATCAT library consists of 2 source files:
 Parses SATCAT strings.
 
 - `sc_parse`: Parses a SATCAT-formatted string into a `struct SatCat`
+- `sc_validate`: Validates if string is SATCAT-formatted
 
 Strings within `struct SatCat` are **NOT** NULL-terminated, and are right-padded with spaces.
 

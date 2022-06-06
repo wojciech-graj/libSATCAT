@@ -41,5 +41,6 @@ struct SatCat {
 };
 
 void sc_parse(struct SatCat *sc, char *str);
+bool sc_validate(char *str);
 
 #endif /* SATCAT_H */

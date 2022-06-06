@@ -9,12 +9,13 @@
 int main(int argc, char **argv)
 {
 	long len;
+	long i;
 	char *test_data;
 	struct SatCat *sats;
 	FILE *f;
 	char *c;
 	unsigned sat_cnt = 0;
-	unsigned i;
+	unsigned i_sat = 0;
 	clock_t clk_start, clk_end;
 
 	(void)argc;
@@ -27,15 +28,14 @@ int main(int argc, char **argv)
 	len = ftell(f);
 	assert(len > 0);
 	fseek(f, 0, SEEK_SET);
-	test_data = malloc(len + 1);
+	test_data = malloc(len);
 	assert(test_data);
 	fread(test_data, 1, len, f);
-	test_data[len] = '\0';
 	fclose(f);
 
 	/* Count satellites */
-	for (c = test_data; *c; c++)
-		if (*c == '\n')
+	for (i = 0; i < len; i++)
+		if (test_data[i] == '\n')
 			sat_cnt++;
 	sats = malloc(sizeof(struct SatCat) * sat_cnt);
 	assert(sats);
@@ -44,7 +44,11 @@ int main(int argc, char **argv)
 	c = test_data;
 	clk_start = clock();
 	for (i = 0; i < sat_cnt; i++) {
-		sc_parse(&sats[i], c);
+		if (sc_validate(c)) {
+			sc_parse(&sats[i_sat], c);
+			i_sat++;
+		}
+
 		while (*c != '\n')
 			c++;
 		c++;
@@ -53,7 +57,8 @@ int main(int argc, char **argv)
 	free(test_data);
 
 	/* Print summary */
-	printf("Parsed %u satellites in %fs.\n\n", sat_cnt, (clk_end - clk_start) / (float)CLOCKS_PER_SEC);
+	printf("Parsed and Validated %u satellites in %fs.\n", sat_cnt, (clk_end - clk_start) / (float)CLOCKS_PER_SEC);
+	printf("Found %u valid satellites and %u invalid satellites.\n\n", i_sat, sat_cnt - i_sat);
 
 	/* Demonstrate satcat_code.h */
 	puts("First satellite:");
