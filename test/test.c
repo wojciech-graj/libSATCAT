@@ -18,9 +18,6 @@ int main(int argc, char **argv)
 	unsigned i_sat = 0;
 	clock_t clk_start, clk_end;
 
-	(void)argc;
-	(void)argv;
-
 	/* Read test data */
 	f = fopen("test_data.txt", "rb");
 	assert(f);
@@ -62,11 +59,18 @@ int main(int argc, char **argv)
 
 	/* Demonstrate satcat_code.h */
 	puts("First satellite:");
+#ifdef SC_CSTRING
+	printf("Name: %s\n", sats[0].name);
+#else
 	printf("Name: %.24s\n", sats[0].name);
+#endif
 	printf("Catalog Number: %u\n", sats[0].catnum);
 	printf("Status: %s\n", sc_status_str(sats[0].opstat));
 	printf("Source: %s\n", sc_source_str(SC_STR5_TO_CODE(sats[0].source)));
 	printf("Launch Site: %s\n", sc_launch_site_str(SC_STR5_TO_CODE(sats[0].launch_site)));
 
 	return 0;
+
+	(void)argc;
+	(void)argv;
 }
