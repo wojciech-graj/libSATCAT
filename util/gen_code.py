@@ -6,7 +6,7 @@ Permission is granted to use, copy, modify, and redistribute the work.
 Full license information available in the project LICENSE file.
 
 DESCRIPTION:
-    Generate satcat_code.h and satcat_code.c based on data from celestrak.com
+    Generate satcat_code.h and satcat_code.c based on data from celestrak.org
 """
 
 import requests
@@ -55,18 +55,14 @@ def write_header(fh: t.TextIO, fc: t.TextIO) -> None:
         "#ifndef SATCAT_CODE_H\n"
         "#define SATCAT_CODE_H\n"
         "\n"
-        "#ifdef __cplusplus\n"
-        'extern "C"{\n'
-        "#endif\n"
-        "\n"
         "#ifdef _ISOC99_SOURCE\n"
         "#include <stdint.h>\n"
         "typedef uint64_t sc_code_t;\n"
         "#else\n"
         "#include <limits.h>\n"
-        "#if (UINT_MAX >= 0xFFFFFFFFFF)\n"
+        "#if (UINT_MAX >= 0xFFFFFFFFFFUL)\n"
         "typedef unsigned sc_code_t;\n"
-        "#elif (ULONG_MAX >= 0xFFFFFFFFFF)\n"
+        "#elif (ULONG_MAX >= 0xFFFFFFFFFFUL)\n"
         "typedef unsigned long sc_code_t;\n"
         "#else\n"
         "typedef unsigned long long sc_code_t;\n"
@@ -96,10 +92,6 @@ def write_header(fh: t.TextIO, fc: t.TextIO) -> None:
 
 def write_footer(fh: t.TextIO, fc: t.TextIO) -> None:
     fh.write((
-        "#ifdef __cplusplus\n"
-        "}\n"
-        "#endif\n"
-        "\n"
         "#endif /* SATCAT_CODE_H */"
     ))
 
@@ -115,7 +107,7 @@ def write_body_5byte(fh: t.TextIO, fc: t.TextIO, table: list[tuple[str, str]], p
     ))
     funcc = "".join([f'\tcase {prefix}_{r[0]}:\n\t\treturn "{r[1]}";\n' for r in table])
     fc.write((
-        f"const char *sc_{fname}_str(const sc_code_t code)"
+        f"const char *sc_{fname}_str(const sc_code_t code)\n"
         "{\n"
         "\tswitch (code) {\n"
         f"{funcc}"
@@ -168,8 +160,8 @@ def write_status_enum(fh: t.TextIO, fc: t.TextIO) -> None:
 
 def main() -> None:
     tabs = (
-        {"url": "https://www.celestrak.com/satcat/sources.php", "name": "Source", "prefix": "SCSRC", "fname": "source"},
-        {"url": "https://www.celestrak.com/satcat/launchsites.php", "name": "Launch Site", "prefix": "SCSITE", "fname": "launch_site"},
+        {"url": "http://www.celestrak.org/satcat/sources.php", "name": "Source", "prefix": "SCSRC", "fname": "source"},
+        {"url": "http://www.celestrak.org/satcat/launchsites.php", "name": "Launch Site", "prefix": "SCSITE", "fname": "launch_site"},
     )
 
     fh = open("src/satcat_code.h", "w")
