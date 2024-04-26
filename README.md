@@ -56,7 +56,7 @@ These files can be regenerated using `util/gen_code.py` if the SATCAT Operationa
 
 ## License
 ```
-Copyright (c) 2022 Wojciech Graj
+Copyright (c) 2022-2024 Wojciech Graj
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

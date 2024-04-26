@@ -1,5 +1,5 @@
 """
-Copyright (c) 2022 Wojciech Graj
+Copyright (c) 2022-2024 Wojciech Graj
 
 Licensed under the MIT license: https://opensource.org/licenses/MIT
 Permission is granted to use, copy, modify, and redistribute the work.
@@ -42,7 +42,7 @@ class HTMLTableReader(HTMLParser):
 def write_header(fh: t.TextIO, fc: t.TextIO) -> None:
     copyright_notice = (
         "/*\n"
-        " * Copyright (c) 2022 Wojciech Graj\n"
+        " * Copyright (c) 2022-2024 Wojciech Graj\n"
         " *\n"
         " * Licensed under the MIT license: https://opensource.org/licenses/MIT\n"
         " * Permission is granted to use, copy, modify, and redistribute the work.\n"
