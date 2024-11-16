@@ -147,6 +147,7 @@ const char *sc_launch_site_str(sc_code_t code);
 #define SCSRC_SAUD  (sc_code_t)138585391443UL
 #define SCSRC_SDN   (sc_code_t)137980953683UL
 #define SCSRC_SEAL  (sc_code_t)138718299475UL
+#define SCSRC_SEN   (sc_code_t)137980953939UL
 #define SCSRC_SES   (sc_code_t)137981281619UL
 #define SCSRC_SGJP  (sc_code_t)138785998675UL
 #define SCSRC_SING  (sc_code_t)138635266387UL

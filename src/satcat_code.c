@@ -239,6 +239,8 @@ const char *sc_source_str(const sc_code_t code)
 		return "Republic of Sudan";
 	case SCSRC_SEAL:
 		return "Sea Launch";
+	case SCSRC_SEN:
+		return "Republic of Senegal";
 	case SCSRC_SES:
 		return "SES";
 	case SCSRC_SGJP:
