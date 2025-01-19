@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2024 Wojciech Graj
+ * Copyright (c) 2022-2025 Wojciech Graj
  *
  * Licensed under the MIT license: https://opensource.org/licenses/MIT
  * Permission is granted to use, copy, modify, and redistribute the work.
@@ -129,6 +129,8 @@ const char *sc_source_str(const sc_code_t code)
 		return "Greece/Saudi Arabia";
 	case SCSRC_GUAT:
 		return "Guatemala";
+	case SCSRC_HRV:
+		return "Republic of Croatia";
 	case SCSRC_HUN :
 		return "Hungary";
 	case SCSRC_IM  :
@@ -379,4 +381,3 @@ const char *sc_launch_site_str(const sc_code_t code)
 		return NULL;
 	}
 }
-

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2024 Wojciech Graj
+ * Copyright (c) 2022-2025 Wojciech Graj
  *
  * Licensed under the MIT license: https://opensource.org/licenses/MIT
  * Permission is granted to use, copy, modify, and redistribute the work.
@@ -92,6 +92,7 @@ const char *sc_launch_site_str(sc_code_t code);
 #define SCSRC_GREC  (sc_code_t)138567569991UL
 #define SCSRC_GRSA  (sc_code_t)138534933063UL
 #define SCSRC_GUAT  (sc_code_t)138852521287UL
+#define SCSRC_HRV   (sc_code_t)137981481544UL
 #define SCSRC_HUN   (sc_code_t)137980958024UL
 #define SCSRC_IM    (sc_code_t)137977941321UL
 #define SCSRC_IND   (sc_code_t)137980300873UL
