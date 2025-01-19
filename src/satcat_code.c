@@ -129,6 +129,8 @@ const char *sc_source_str(const sc_code_t code)
 		return "Greece/Saudi Arabia";
 	case SCSRC_GUAT:
 		return "Guatemala";
+	case SCSRC_HRV:
+		return "Republic of Croatia";
 	case SCSRC_HUN :
 		return "Hungary";
 	case SCSRC_IM  :
