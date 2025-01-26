@@ -381,3 +381,4 @@ const char *sc_launch_site_str(const sc_code_t code)
 		return NULL;
 	}
 }
+
