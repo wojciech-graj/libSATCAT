@@ -178,6 +178,7 @@ const char *sc_launch_site_str(sc_code_t code);
 /* Launch Site */
 #define SCSITE_AFETR (sc_code_t)353601144385UL
 #define SCSITE_AFWTR (sc_code_t)353602324033UL
+#define SCSITE_ANDSP (sc_code_t)344994369089UL
 #define SCSITE_CAS   (sc_code_t)137981280579UL
 #define SCSITE_DLS   (sc_code_t)137981283396UL
 #define SCSITE_ERAS  (sc_code_t)138835743301UL
