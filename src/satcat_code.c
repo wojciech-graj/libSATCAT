@@ -65,8 +65,10 @@ const char *sc_source_str(const sc_code_t code)
 		return "Bermuda";
 	case SCSRC_BGD :
 		return "Peoples Republic of Bangladesh";
+	case SCSRC_BHR:
+		return "The Kingdom of Bahrain";
 	case SCSRC_BHUT:
-		return "Kingdom of Bhutan";
+		return "The Kingdom of Bhutan";
 	case SCSRC_BOL :
 		return "Bolivia";
 	case SCSRC_BRAZ:

@@ -60,6 +60,7 @@ const char *sc_launch_site_str(sc_code_t code);
 #define SCSRC_BELA  (sc_code_t)138534470978UL
 #define SCSRC_BERM  (sc_code_t)138736190786UL
 #define SCSRC_BGD   (sc_code_t)137980299074UL
+#define SCSRC_BHR   (sc_code_t)137981216834UL
 #define SCSRC_BHUT  (sc_code_t)138853828674UL
 #define SCSRC_BOL   (sc_code_t)137980825410UL
 #define SCSRC_BRAZ  (sc_code_t)138953183810UL
