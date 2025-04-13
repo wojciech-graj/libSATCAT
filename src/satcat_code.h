@@ -65,6 +65,7 @@ const char *sc_launch_site_str(sc_code_t code);
 #define SCSRC_BOL   (sc_code_t)137980825410UL
 #define SCSRC_BRAZ  (sc_code_t)138953183810UL
 #define SCSRC_BUL   (sc_code_t)137980826946UL
+#define SCSRC_BWA   (sc_code_t)137980106562UL
 #define SCSRC_CA    (sc_code_t)137977938243UL
 #define SCSRC_CHBZ  (sc_code_t)138953246787UL
 #define SCSRC_CHTU  (sc_code_t)138870540355UL
