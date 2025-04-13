@@ -73,8 +73,10 @@ const char *sc_source_str(const sc_code_t code)
 		return "Bolivia";
 	case SCSRC_BRAZ:
 		return "Brazil";
-	case SCSRC_BUL:
+	case SCSRC_BUL :
 		return "Bulgaria";
+	case SCSRC_BWA :
+		return "Republic of Botswana";
 	case SCSRC_CA  :
 		return "Canada";
 	case SCSRC_CHBZ:
