@@ -311,6 +311,8 @@ const char *sc_launch_site_str(const sc_code_t code)
 		return "Air Force Western Test Range, California, USA";
 	case SCSITE_ANDSP:
 		return "Andøya Spaceport, Nordland, Norway";
+	case SCSITE_BOS  :
+		return "Bowen Orbital Spaceport, Queensland, Australia";
 	case SCSITE_CAS  :
 		return "Canaries Airspace";
 	case SCSITE_DLS  :
