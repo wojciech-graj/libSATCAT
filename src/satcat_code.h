@@ -155,6 +155,7 @@ const char *sc_launch_site_str(sc_code_t code);
 #define SCSRC_SGJP  (sc_code_t)138785998675UL
 #define SCSRC_SING  (sc_code_t)138635266387UL
 #define SCSRC_SKOR  (sc_code_t)138819881811UL
+#define SCSRC_SLB   (sc_code_t)137980169299UL
 #define SCSRC_SPN   (sc_code_t)137980956755UL
 #define SCSRC_STCT  (sc_code_t)138852652115UL
 #define SCSRC_SVN   (sc_code_t)137980958291UL
