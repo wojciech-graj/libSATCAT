@@ -255,6 +255,8 @@ const char *sc_source_str(const sc_code_t code)
 		return "Singapore";
 	case SCSRC_SKOR:
 		return "Republic of Korea";
+	case SCSRC_SLB :
+		return "Solomon Islands";
 	case SCSRC_SPN :
 		return "Spain";
 	case SCSRC_STCT:
