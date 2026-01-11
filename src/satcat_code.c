@@ -82,7 +82,7 @@ const char *sc_source_str(const sc_code_t code)
 	case SCSRC_CHBZ:
 		return "China/Brazil";
 	case SCSRC_CHTU:
-		return "China/Turkey";
+		return "China/Türkiye";
 	case SCSRC_CHLE:
 		return "Chile";
 	case SCSRC_CIS :
@@ -187,6 +187,8 @@ const char *sc_source_str(const sc_code_t code)
 		return "Mexico";
 	case SCSRC_MMR :
 		return "Republic of the Union of Myanmar";
+	case SCSRC_MNE :
+		return "Montenegro";
 	case SCSRC_MNG :
 		return "Mongolia";
 	case SCSRC_MUS :
@@ -276,7 +278,7 @@ const char *sc_source_str(const sc_code_t code)
 	case SCSRC_TUN :
 		return "Republic of Tunisia";
 	case SCSRC_TURK:
-		return "Turkey";
+		return "Türkiye";
 	case SCSRC_UAE :
 		return "United Arab Emirates";
 	case SCSRC_UK  :
