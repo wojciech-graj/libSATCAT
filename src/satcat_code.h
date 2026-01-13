@@ -121,6 +121,7 @@ const char *sc_launch_site_str(sc_code_t code);
 #define SCSRC_MDA   (sc_code_t)137980101709UL
 #define SCSRC_MEX   (sc_code_t)137981609293UL
 #define SCSRC_MMR   (sc_code_t)137981218125UL
+#define SCSRC_MNE   (sc_code_t)137980366413UL
 #define SCSRC_MNG   (sc_code_t)137980497485UL
 #define SCSRC_MUS   (sc_code_t)137981285709UL
 #define SCSRC_NATO  (sc_code_t)138769875278UL
